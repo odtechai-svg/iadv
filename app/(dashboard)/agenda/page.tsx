@@ -32,10 +32,10 @@ export default function AgendaPage() {
         ...mockPublicacoes.map(p => ({
             id: p.id,
             type: 'publicacao' as const,
-            title: `${p.tipo_publicacao} - ${p.processo_cnj}`,
+            title: `${p.conteudo.tipo_comunicacao} - ${p.processo.cnj}`,
             date: new Date(p.data_publicacao),
             priority: null,
-            status: p.lido ? 'Lido' : 'Não Lido',
+            status: p.status === 'tratado' ? 'Lido' : 'Não Lido',
             matter: null,
             link: `/publicacoes`,
         })),
