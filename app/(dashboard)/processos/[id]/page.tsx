@@ -42,6 +42,7 @@ const processoDetalhes = {
     autor: 'MARIA FERNANDA CESAR LAS CASAS DE OLIVEIRA',
     advogado_envolvido: 'MARIA FERNANDA CESAR LAS CASAS DE OLIVEIRA',
     natureza_classe: 'CÍVEL',
+    orgao: 'SEM INFORMAÇÃO',
 }
 
 const movimentacoes = [

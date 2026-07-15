@@ -1,9 +1,14 @@
 // Mock data para preview local do sistema
 export const mockUser = {
-    id: '1 ',
+    id: '1',
+    org_id: 'org-1',
     name: 'João Silva',
     email: 'joao@email.com',
+    role: 'Admin' as const,
+    phone: null,
     avatar_url: null,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
 }
 
 export const mockOrganization = {
@@ -280,30 +285,30 @@ export const mockDeadlines = [
 
 export const mockStats = {
     inbox: {
-        total: mockInboxItems.filter(i => i.status !== 'Arquivado').length,
-        novo: mockInboxItems.filter(i => i.status === 'Novo').length,
-        em_triagem: mockInboxItems.filter(i => i.status === 'Em triagem').length,
-        virou_prazo: mockInboxItems.filter(i => i.status === 'Virou prazo').length,
+        total: mockInboxItems.filter(i => (i.status as string) !== 'Arquivado').length,
+        novo: mockInboxItems.filter(i => (i.status as string) === 'Novo').length,
+        em_triagem: mockInboxItems.filter(i => (i.status as string) === 'Em triagem').length,
+        virou_prazo: mockInboxItems.filter(i => (i.status as string) === 'Virou prazo').length,
     },
     deadlines: {
-        total: mockDeadlines.filter(d => ['Agendado', 'Atrasado'].includes(d.status)).length,
-        aberto: mockDeadlines.filter(d => d.status === 'Agendado').length,
-        atrasado: mockDeadlines.filter(d => d.status === 'Atrasado').length,
+        total: mockDeadlines.filter(d => ['Agendado', 'Atrasado'].includes(d.status as string)).length,
+        aberto: mockDeadlines.filter(d => (d.status as string) === 'Agendado').length,
+        atrasado: mockDeadlines.filter(d => (d.status as string) === 'Atrasado').length,
         hoje: mockDeadlines.filter(d => {
             const today = new Date().toDateString()
-            return new Date(d.due_at).toDateString() === today && ['Agendado', 'Atrasado'].includes(d.status)
+            return new Date(d.due_at).toDateString() === today && ['Agendado', 'Atrasado'].includes(d.status as string)
         }).length,
         proximos_3_dias: mockDeadlines.filter(d => {
             const due = new Date(d.due_at)
             const now = new Date()
             const diff = (due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
-            return diff >= 0 && diff <= 3 && ['Agendado', 'Atrasado'].includes(d.status)
+            return diff >= 0 && diff <= 3 && ['Agendado', 'Atrasado'].includes(d.status as string)
         }).length,
         proximos_7_dias: mockDeadlines.filter(d => {
             const due = new Date(d.due_at)
             const now = new Date()
             const diff = (due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
-            return diff >= 0 && diff <= 7 && ['Agendado', 'Atrasado'].includes(d.status)
+            return diff >= 0 && diff <= 7 && ['Agendado', 'Atrasado'].includes(d.status as string)
         }).length,
     },
 }

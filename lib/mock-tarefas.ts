@@ -88,11 +88,11 @@ export const mockTarefas = [
 
 export const tarefasStats = {
     total: mockTarefas.length,
-    a_fazer: mockTarefas.filter(t => t.status === 'a_fazer').length,
-    em_progresso: mockTarefas.filter(t => t.status === 'em_progresso').length,
-    atrasados: mockTarefas.filter(t => t.status === 'atrasado').length,
-    concluidos: mockTarefas.filter(t => t.status === 'concluido').length,
-    descartados: mockTarefas.filter(t => t.status === 'descartado').length,
+    a_fazer: mockTarefas.filter(t => (t.status as string) === 'a_fazer').length,
+    em_progresso: mockTarefas.filter(t => (t.status as string) === 'em_progresso').length,
+    atrasados: mockTarefas.filter(t => (t.status as string) === 'atrasado').length,
+    concluidos: mockTarefas.filter(t => (t.status as string) === 'concluido').length,
+    descartados: mockTarefas.filter(t => (t.status as string) === 'descartado').length,
 }
 
 export type TarefaStatus = 'a_fazer' | 'em_progresso' | 'atrasado' | 'concluido' | 'descartado'

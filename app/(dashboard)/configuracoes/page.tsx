@@ -89,7 +89,7 @@ export default function ConfiguracoesPage() {
                                             : 'Plano básico - Upgrade para PRO para mais recursos'}
                                     </p>
                                 </div>
-                                {mockOrganization.plan === 'STARTER' && (
+                                {String(mockOrganization.plan) === 'STARTER' && (
                                     <div className="border-t pt-4">
                                         <h4 className="font-medium mb-2">Recursos PRO:</h4>
                                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">

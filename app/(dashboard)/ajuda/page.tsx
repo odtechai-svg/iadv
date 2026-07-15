@@ -64,7 +64,7 @@ export default function AjudaPage() {
                     </CardHeader>
                     <CardContent className="space-y-2">
                         <p className="text-sm">
-              Configure webhook em Configurações > Integrações. Se não configurado, mensagens ficam como "pendente".
+              Configure webhook em Configurações &gt; Integrações. Se não configurado, mensagens ficam como "pendente".
                         </p>
                     </CardContent>
                 </Card>
